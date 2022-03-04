@@ -6,21 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
-import java.util.List;
-
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(value="posts")
-public class Post {
+@Document(value="users")
+public class User {
     private String id;
-    private String title;
-    private Date date;
-    private String status;
-    private String content;
-    private String blogId;
-    private List<Comment> comments;
-    private List<Reaction> reactions;
+    private String login;
+    private String password;
+    private String authorId;
 }

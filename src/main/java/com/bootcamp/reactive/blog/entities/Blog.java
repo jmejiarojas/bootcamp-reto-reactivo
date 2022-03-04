@@ -21,6 +21,4 @@ public class Blog {
     private String authorId;
     private String url;
     private String status;
-
-
 }
