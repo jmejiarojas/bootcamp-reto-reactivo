@@ -8,6 +8,7 @@ import com.bootcamp.reactive.blog.repositories.BlogRepository;
 import com.bootcamp.reactive.blog.services.BlogService;
 import com.bootcamp.reactive.blog.utils.AuthorUtils;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -17,7 +18,7 @@ import java.util.Date;
 
 
 @Service
-@AllArgsConstructor
+@AllArgsConstructor // TODO use @RequiredArgsConstructor
 public class BlogServiceImpl implements BlogService {
 
     private final BlogRepository blogRepository;
