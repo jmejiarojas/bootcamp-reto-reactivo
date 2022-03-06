@@ -5,18 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class RegisterRequest {
+public class BlogRequest {
 
-  private String Name;
-  private String email;
-  private String phoneNumber;
-  private LocalDate birthDate;
-  private String userName;
-  private String password;
+  private String name;
+  private String authorId;
+  private String url;
 }
