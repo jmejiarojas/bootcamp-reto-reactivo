@@ -11,6 +11,7 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder(toBuilder = true)
 @Document(value="authors")
 public class Author {
     @Id

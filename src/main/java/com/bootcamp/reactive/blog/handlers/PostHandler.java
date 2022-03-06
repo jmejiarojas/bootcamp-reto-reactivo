@@ -1,5 +1,6 @@
 package com.bootcamp.reactive.blog.handlers;
 
+import com.bootcamp.reactive.blog.dto.PostRequest;
 import com.bootcamp.reactive.blog.entities.Blog;
 import com.bootcamp.reactive.blog.entities.Post;
 import com.bootcamp.reactive.blog.services.PostService;
@@ -19,7 +20,7 @@ public class PostHandler {
     private PostService postService;
 
     public Mono<ServerResponse> save(ServerRequest request) {
-        return request.bodyToMono(Post.class)
+        return request.bodyToMono(PostRequest.class)
                 .flatMap(post -> this.postService.save(post))
                 .flatMap(post -> ServerResponse.ok().body(Mono.just(post), Post.class));
     }
