@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder(toBuilder = true)
 @Document(value="authors")
 public class Author {
     @Id
@@ -18,6 +20,6 @@ public class Author {
     private String name;
     private String email;
     private String phone;
-    private Date birthDate;
+    private LocalDate birthDate;
 
 }
