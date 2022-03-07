@@ -5,17 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(toBuilder = true)
-public class RegisterPostRequest {
+public class PublishPostRequest {
 
-  private String title;
-  private LocalDate date;
-  private String status;
-  private String content;
   private String blogId;
+  private String postId;
 }

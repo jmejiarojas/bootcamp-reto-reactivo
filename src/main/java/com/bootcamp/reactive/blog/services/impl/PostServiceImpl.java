@@ -2,6 +2,7 @@ package com.bootcamp.reactive.blog.services.impl;
 
 import com.bootcamp.reactive.blog.core.exception.BlogNotFoundException;
 import com.bootcamp.reactive.blog.dto.PostRequest;
+import com.bootcamp.reactive.blog.dto.PublishPostRequest;
 import com.bootcamp.reactive.blog.dto.RegisterPostRequest;
 import com.bootcamp.reactive.blog.entities.Post;
 import com.bootcamp.reactive.blog.repositories.BlogRepository;
@@ -66,6 +67,15 @@ public class PostServiceImpl implements PostService {
             .flatMap(postRepository::save)
             .map(post -> "Post Register Ok!")
             .switchIfEmpty(Mono.defer(() -> Mono.error(new RuntimeException("Solo 1 post por dia!!"))));
+  }
+
+  @Override
+  public Mono<String> publishPost(PublishPostRequest publishPostRequest) {
+    return postRepository.save(Post.builder()
+                    .blogId(publishPostRequest.getBlogId())
+                    .id(publishPostRequest.getPostId())
+                    .status("publicado").build())
+            .map(post -> "post publicado!!");
   }
 
   // Para publicar un post o poner estado "publicado" se actualiza el estado del post, es la unica forma, es mi regla de negocio
